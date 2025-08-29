@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Full Stack Development includes HTML, CSS, Javascript, and Bootstrap for the front end and PHP+MySQL for back end technology."/>
+    <meta name="Keywords" content="Full Stack Development, HTML, CSS, Javascript, Bootstrap, PHP+MySQL, Web Application Development">
+    <meta name="author" content="Satyam Bhattarai">
+    <meta name="copyright" content="Copyright © 2025" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- favicon for portfolio -->
+    <link rel="shortcut icon" href="assets/images/favicon.PNG" type="image/x-icon">
+    <title>Welcome! Portfolio</title>
+    <style>
+      :root {
+        --primary-dark: #0a192f;
+        --primary-light: #112240;
+        --accent: #64ffda;
+        --accent-gold: #ffd700;
+        --text-primary: #ccd6f6;
+        --text-secondary: #8892b0;
+      }
+      
+      body {
+        background-color: var(--primary-dark);
+        color: var(--text-primary);
+        font-family: 'Calibri', sans-serif;
+      }
+      
+      .navbar {
+        background: linear-gradient(90deg, var(--primary-light) 0%, #1a2f4e 100%) !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+      
+      .navbar-brand, .nav-link {
+        color: var(--text-primary) !important;
+      }
+      
+      .nav-link.active {
+        color: var(--accent) !important;
+        font-weight: bold;
+      }
+      
+      .nav-link:hover {
+        color: var(--accent) !important;
+      }
+      
+      .btn-outline-warning {
+        color: var(--accent-gold);
+        border-color: var(--accent-gold);
+      }
+      
+      .btn-outline-warning:hover {
+        background-color: var(--accent-gold);
+        color: var(--primary-dark);
+      }
+      
+      .hero-section {
+        background: linear-gradient(135deg, var(--primary-light) 0%, #1e3a5f 100%);
+        border-radius: 15px;
+        margin-top: 100px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(100, 255, 218, 0.2);
+      }
+      
+      .btn-warning {
+        background: linear-gradient(135deg, var(--accent-gold) 0%, #ffcc00 100%);
+        border: none;
+        color: var(--primary-dark);
+        font-weight: bold;
+      }
+      
+      .btn-warning:hover {
+        background: linear-gradient(135deg, #ffcc00 0%, var(--accent-gold) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+      }
+      
+      .tech-card {
+        background: linear-gradient(135deg, var(--primary-light) 0%, #1a2f4e 100%);
+        border-radius: 10px;
+        padding: 25px;
+        height: 100%;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(100, 255, 218, 0.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      .tech-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border-color: var(--accent);
+      }
+      
+      .btn-outline-success {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+      
+      .btn-outline-success:hover {
+        background-color: var(--accent);
+        color: var(--primary-dark);
+      }
+      
+      footer {
+        background: linear-gradient(90deg, var(--primary-light) 0%, #1a2f4e 100%) !important;
+        border-top: 1px solid rgba(100, 255, 218, 0.2);
+      }
+      
+      footer a {
+        color: var(--text-secondary) !important;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      
+      footer a:hover {
+        color: var(--accent) !important;
+      }
+      
+      .social-icons a {
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        border-radius: 50%;
+        background: var(--primary-light);
+        color: var(--accent) !important;
+        margin: 0 5px;
+        transition: all 0.3s;
+      }
+      
+      .social-icons a:hover {
+        background: var(--accent);
+        color: var(--primary-dark) !important;
+        transform: translateY(-3px);
+      }
+      
+      .top-move {
+        background: linear-gradient(135deg, var(--accent-gold) 0%, #ffcc00 100%);
+      }
+      
+      .top-move a {
+        color: var(--primary-dark) !important;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+      }
+      
+      .display-5 {
+        background: linear-gradient(90deg, var(--accent) 0%, var(--accent-gold) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+<body>
+<!-- navbar start -->
+ <nav class="navbar navbar-expand-lg fixed-top navbar-dark text-light fs-4">
+   <div class="container-fluid">
+     <a class="navbar-brand fs-4 fw-bold" href="#">
+      <img src="assets/images/logo.PNG" alt="" width="70px" class="rounded-3">
+      Portfolio</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="fullstack.html">What is full stack?</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="html.html">HTML</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link" href="css.html">CSS</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link" href="js.html">Javascript</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link" href="bs.html">Bootstrap</a>
+         </li>
+        <!-- end -->
+       </ul>
+       <form class="d-flex">
+         <a class="btn btn-outline-warning me-2" href="#">Log in</a>
+         <a class="btn btn-outline-warning" href="#">Register</a>
+       </form>
+     </div>
+   </div>
+ </nav>
+<!-- navbar end -->
+<!-- hero portfolio start -->
+<div class="container hero-section mt-5">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Full Stack Development</h1>
+    <p class="col-md-8 fs-4 text-secondary">
+      Master the art of web development with cutting-edge technologies. Create stunning, responsive websites and powerful web applications from front-end to back-end.
+    </p>
+    <a class="btn btn-warning btn-lg mt-3" href="fullstack.html" type="button">
+      Explore Technologies <i class="fas fa-arrow-right ms-2"></i>
+    </a>
+  </div>
+</div>
+<!-- hero portfolio end -->
+
+<!--content start-->
+<div class="container py-5 my-3">
+ <h1 class="display-5 fw-bold text-center py-3">Web Technology Stack</h1>
+ <div class="row g-4">
+  <div class="col-md-3">
+    <div class="tech-card">
+      <h2 class="text-primary">HTML</h2>
+      <p class="text-secondary">
+        The foundation of all web pages. HTML provides the structure and content of your website, defining elements like headings, paragraphs, images, and links.
+      </p>
+      <a class="btn btn-outline-success" href="html.html">Learn More</a>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="tech-card">
+      <h2 class="text-primary">CSS</h2>
+      <p class="text-secondary">
+        Bring style to your web pages. CSS controls the visual presentation, including layout, colors, fonts, and responsive design for all device sizes.
+      </p>
+      <a class="btn btn-outline-success" href="css.html">Learn More</a>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="tech-card">
+      <h2 class="text-primary">Bootstrap</h2>
+      <p class="text-secondary">
+        The world's most popular front-end framework. Build responsive, mobile-first projects quickly with Bootstrap's extensive component library.
+      </p>
+      <a class="btn btn-outline-success" href="bs.html">Learn More</a>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="tech-card">
+      <h2 class="text-primary">Javascript</h2>
+      <p class="text-secondary">
+        Add interactivity and dynamic behavior to your websites. JavaScript enables complex features like animations, form validation, and API interactions.
+      </p>
+      <a class="btn btn-outline-success" href="js.html">Learn More</a>
+    </div>
+  </div>
+ </div>
+</div>
+<!--content end-->
+<!-- Footer -->
+<footer class="page-footer font-small indigo">
+
+  <!-- Footer Links -->
+  <div class="container-fluid bg-dark text-light">
+
+    <!-- Grid row-->
+    <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="index.html">Home</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="fullstack.html">What is full stack?</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="css.html">CSS</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="bs.html">Bootstrap</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="js.html">Javascript</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+
+    <!-- Grid row-->
+    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+      <!-- Grid column -->
+      <div class="col-md-8 col-12 mt-5">
+        <p style="line-height: 1.7rem">
+          All &copy; rights reserved @ 2025 | Designed with <i class="fas fa-heart text-danger"></i> by Satyam
+        </p>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    <!-- Grid row-->
+    <div class="row pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-12">
+
+        <div class="mb-5 text-center social-icons">
+
+          <!-- Facebook -->
+          <a class="fb-ic" href="#">
+            <i class="fab fa-facebook-f fa-lg"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic" href="#">
+            <i class="fab fa-twitter fa-lg"> </i>
+          </a>
+          
+          <!--Linkedin -->
+          <a class="li-ic" href="#">
+            <i class="fab fa-linkedin-in fa-lg"> </i>
+          </a>
+
+          <!--Instagram-->
+          <a class="ins-ic" href="#">
+            <i class="fab fa-instagram fa-lg"> </i>
+          </a>
+         
+          <!--whatsapp-->
+          <a class="ins-ic" href="https://wa.me/9779846164663">
+            <i class="fab fa-whatsapp fa-lg"> </i>
+          </a>
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">Powered By:
+    <a href="#"> Satyam</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+<style>
+ /*move page top*/
+.top-move {
+    position: fixed;
+    right: 19px;
+    z-index: 100;
+    text-align: center;
+    bottom: 48px;
+    padding: 5x;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.top-move a{
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.top-move a i{
+    font-size: 2.5rem;
+}
+</style>
+<div class="top-move d-none" id="move-top">
+  <a href="#"><i class="fas fa-arrow-up"></i></a>
+</div>
+<script>
+// scroll functions
+$(window).scroll(function(e) {
+  if($(window).scrollTop() > 150) {
+    $('#move-top').removeClass('d-none');
+  } else {
+    $('#move-top').addClass('d-none');
+  }
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+</script>
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+</body>
+</html>
