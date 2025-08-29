@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Expertise | Professional Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0a192f;
+            --secondary-dark: #112240;
+            --accent-color: #64ffda;
+            --text-primary: #e6f1ff;
+            --text-secondary: #8892b0;
+            --card-bg: #112240;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-primary);
+            padding-top: 80px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        
+        .navbar {
+            background-color: rgba(10, 25, 47, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .navbar-brand, .nav-link {
+            color: var(--accent-color) !important;
+            font-weight: 600;
+        }
+        
+        .nav-link.active {
+            background-color: rgba(100, 255, 218, 0.1) !important;
+            border-radius: 4px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+        
+        .card-title {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .code-container {
+            background-color: #1d3a5c;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .code-keyword {
+            color: #ff79c6;
+        }
+        
+        .code-function {
+            color: #50fa7b;
+        }
+        
+        .code-variable {
+            color: #f1fa8c;
+        }
+        
+        .code-comment {
+            color: #6272a4;
+        }
+        
+        .btn-accent {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            padding: 10px 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-accent:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .demo-container {
+            background: linear-gradient(145deg, var(--secondary-dark) 0%, #1a3b63 100%);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .progress {
+            height: 10px;
+            background-color: #1d3a5c;
+            margin: 15px 0;
+        }
+        
+        .progress-bar {
+            background-color: var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-dark);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-color);
+        }
+        
+        .move-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
+        }
+        
+        .move-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(100, 255, 218, 0.4);
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .framework-logo {
+            height: 60px;
+            margin: 15px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .framework-logo:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fab fa-js-square me-2"></i>JavaScript Portfolio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fullstack.html">Full Stack</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="html.html">HTML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="css.html">CSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="js.html">JavaScript</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bs.html">Bootstrap</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">JavaScript Expertise</h1>
+                    <p class="lead mb-4">Master the language of the web with modern JavaScript development. Create interactive, dynamic web applications with cutting-edge technologies and frameworks.</p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-accent">Explore Projects</button>
+                        <button class="btn btn-accent">Contact Me</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://cdn.worldvectorlogo.com/logos/javascript-1.svg" alt="JavaScript Logo" class="img-fluid" style="max-height: 300px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Overview -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Why JavaScript?</h2>
+                    <p class="text-secondary">JavaScript is the backbone of modern web development, enabling dynamic content, interactive user experiences, and complex web applications.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="card-title">Client-Side Execution</h3>
+                        <p class="text-secondary">JavaScript runs directly in the browser, reducing server load and providing immediate feedback to users.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3 class="card-title">Asynchronous Programming</h3>
+                        <p class="text-secondary">Handle tasks like API calls without blocking the main thread using promises and async/await.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3 class="card-title">Modular Architecture</h3>
+                        <p class="text-secondary">ES6 modules allow for clean, maintainable code organization and dependency management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Examples -->
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="text-center mb-5">JavaScript Code Examples</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h4 class="mb-3">ES6+ Modern Syntax</h4>
+                    <div class="code-container">
+                        <pre><code><span class="code-keyword">import</span> { apiCall } <span class="code-keyword">from</span> <span class="code-variable">'./apiService'</span>;
+
+<span class="code-keyword">const</span> <span class="code-function">fetchUserData</span> = <span class="code-keyword">async</span> (userId) => {
+  <span class="code-keyword">try</span> {
+    <span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">apiCall</span>(<span class="code-variable">`/users/</span>${userId}<span class="code-variable">`</span>);
+    <span class="code-keyword">const</span> { name, email, profile } = response;
+    
+    <span class="code-keyword">return</span> {
+      name,
+      email,
+      avatar: profile?.avatar ?? <span class="code-variable">'default.png'</span>
+    };
+  } <span class="code-keyword">catch</span> (error) {
+    <span class="code-function">console</span>.<span class="code-function">error</span>(<span class="code-variable">'Failed to fetch user:'</span>, error);
+    <span class="code-keyword">throw</span> <span class="code-keyword">new</span> <span class="code-function">Error</span>(<span class="code-variable">'User not found'</span>);
+  }
+};
+
+<span class="code-comment">// Example usage</span>
+<span class="code-function">fetchUserData</span>(123)
+  .<span class="code-function">then</span>(user => <span class="code-function">console</span>.<span class="code-function">log</span>(user))
+  .<span class="code-function">catch</span>(err => <span class="code-function">console</span>.<span class="code-function">error</span>(err));</code></pre>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <h4 class="mb-3">DOM Manipulation</h4>
+                    <div class="code-container">
+                        <pre><code><span class="code-keyword">class</span> <span class="code-function">DynamicUI</span> {
+  <span class="code-function">constructor</span>(containerId) {
+    <span class="code-keyword">this</span>.container = <span class="code-function">document</span>.<span class="code-function">getElementById</span>(containerId);
+    <span class="code-keyword">this</span>.state = {
+      items: [],
+      isLoading: false
+    };
+  }
+  
+  <span class="code-function">createElement</span>(tag, classes = [], text = '') {
+    <span class="code-keyword">const</span> element = <span class="code-function">document</span>.<span class="code-function">createElement</span>(tag);
+    element.<span class="code-function">classList</span>.<span class="code-function">add</span>(...classes);
+    element.textContent = text;
+    <span class="code-keyword">return</span> element;
+  }
+  
+  <span class="code-function">render</span>() {
+    <span class="code-keyword">this</span>.container.<span class="code-variable">innerHTML</span> = '';
+    
+    <span class="code-keyword">if</span> (<span class="code-keyword">this</span>.state.isLoading) {
+      <span class="code-keyword">const</span> loader = <span class="code-keyword">this</span>.<span class="code-function">createElement</span>(<span class="code-variable">'div'</span>, [<span class="code-variable">'spinner'</span>], <span class="code-variable">'Loading...'</span>);
+      <span class="code-keyword">this</span>.container.<span class="code-function">appendChild</span>(loader);
+      <span class="code-keyword">return</span>;
+    }
+    
+    <span class="code-keyword">this</span>.state.items.<span class="code-function">forEach</span>(item => {
+      <span class="code-keyword">const</span> card = <span class="code-keyword">this</span>.<span class="code-function">createElement</span>(<span class="code-variable">'div'</span>, [<span class="code-variable">'card'</span>]);
+      <span class="code-keyword">const</span> title = <span class="code-keyword">this</span>.<span class="code-function">createElement</span>(<span class="code-variable">'h3'</span>, [<span class="code-variable">'title'</span>], item.title);
+      card.<span class="code-function">appendChild</span>(title);
+      <span class="code-keyword">this</span>.container.<span class="code-function">appendChild</span>(card);
+    });
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demos -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Interactive JavaScript Demos</h2>
+            
+            <div class="demo-container">
+                <h4 class="mb-4">API Response Simulator</h4>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <button id="api-call-btn" class="btn btn-accent mb-3">Make API Request</button>
+                        <div class="progress">
+                            <div id="api-progress" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+                        </div>
+                        <p id="api-status" class="mt-2">Ready to make request</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="code-container">
+                            <pre id="api-response">{
+  "status": "idle",
+  "data": null
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-container">
+                <h4 class="mb-4">Dynamic Content Loader</h4>
+                <div class="mb-3">
+                    <button id="load-content" class="btn btn-accent me-2">Load Content</button>
+                    <button id="clear-content" class="btn btn-accent">Clear Content</button>
+                </div>
+                <div id="content-area" class="p-3 border rounded" style="min-height: 150px; background-color: var(--card-bg);">
+                    <p class="text-center text-secondary">Content will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frameworks & Libraries -->
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="text-center mb-5">JavaScript Ecosystem</h2>
+            
+            <div class="row text-center mb-5">
+                <div class="col">
+                    <h4 class="mb-4">Frontend Frameworks</h4>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React" class="framework-logo">
+                        <img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" alt="Angular" class="framework-logo">
+                        <img src="https://cdn.worldvectorlogo.com/logos/vue-9.svg" alt="Vue" class="framework-logo">
+                        <img src="https://cdn.worldvectorlogo.com/logos/svelte-1.svg" alt="Svelte" class="framework-logo">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row text-center">
+                <div class="col">
+                    <h4 class="mb-4">Backend & Build Tools</h4>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" alt="Node.js" class="framework-logo">
+                        <img src="https://cdn.worldvectorlogo.com/logos/express-109.svg" alt="Express" class="framework-logo">
+                        <img src="https://cdn.worldvectorlogo.com/logos/webpack-icon.svg" alt="Webpack" class="framework-logo">
+                        <img src="https://cdn.worldvectorlogo.com/logos/vitejs.svg" alt="Vite" class="framework-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>JavaScript Portfolio</h5>
+                    <p class="text-secondary">Modern web development with cutting-edge JavaScript technologies and frameworks.</p>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-secondary text-decoration-none">Home</a></li>
+                        <li><a href="fullstack.html" class="text-secondary text-decoration-none">Full Stack</a></li>
+                        <li><a href="html.html" class="text-secondary text-decoration-none">HTML</a></li>
+                        <li><a href="css.html" class="text-secondary text-decoration-none">CSS</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h5>Technologies</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="js.html" class="text-secondary text-decoration-none">JavaScript</a></li>
+                        <li><a href="bs.html" class="text-secondary text-decoration-none">Bootstrap</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">React</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Node.js</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Connect With Me</h5>
+                    <div class="d-flex justify-content-start mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-dev"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-secondary">© 2023 JavaScript Portfolio. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="text-secondary">Designed with <i class="fas fa-heart text-danger"></i> for the web</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Move to top button -->
+    <div class="move-top" id="move-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Move to top functionality
+        const moveTopBtn = document.getElementById('move-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                moveTopBtn.style.display = 'flex';
+            } else {
+                moveTopBtn.style.display = 'none';
+            }
+        });
+        
+        moveTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // API Simulator
+        const apiCallBtn = document.getElementById('api-call-btn');
+        const apiProgress = document.getElementById('api-progress');
+        const apiStatus = document.getElementById('api-status');
+        const apiResponse = document.getElementById('api-response');
+        
+        apiCallBtn.addEventListener('click', () => {
+            apiStatus.textContent = 'Requesting...';
+            apiProgress.style.width = '30%';
+            
+            setTimeout(() => {
+                apiProgress.style.width = '60%';
+                apiStatus.textContent = 'Processing response...';
+            }, 600);
+            
+            setTimeout(() => {
+                apiProgress.style.width = '100%';
+                apiStatus.textContent = 'Response received!';
+                
+                // Update response display
+                apiResponse.textContent = `{
+  "status": "success",
+  "data": {
+    "user": {
+      "id": 12345,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "role": "developer"
+    },
+    "preferences": {
+      "theme": "dark",
+      "notifications": true
+    }
+  },
+  "timestamp": "${new Date().toISOString()}"
+}`;
+            }, 1200);
+        });
+        
+        // Dynamic Content Loader
+        const loadContentBtn = document.getElementById('load-content');
+        const clearContentBtn = document.getElementById('clear-content');
+        const contentArea = document.getElementById('content-area');
+        
+        loadContentBtn.addEventListener('click', () => {
+            contentArea.innerHTML = '';
+            
+            // Create sample content
+            const heading = document.createElement('h5');
+            heading.textContent = 'Dynamically Loaded Content';
+            heading.className = 'text-accent';
+            
+            const paragraph = document.createElement('p');
+            paragraph.textContent = 'This content was loaded dynamically using JavaScript. You can interact with the DOM to create, modify, and remove elements on the fly.';
+            paragraph.className = 'text-secondary';
+            
+            const list = document.createElement('ul');
+            list.innerHTML = `
+                <li>Interactive web applications</li>
+                <li>Real-time updates</li>
+                <li>Dynamic user interfaces</li>
+                <li>Asynchronous data loading</li>
+            `;
+            
+            contentArea.appendChild(heading);
+            contentArea.appendChild(paragraph);
+            contentArea.appendChild(list);
+        });
+        
+        clearContentBtn.addEventListener('click', () => {
+            contentArea.innerHTML = '<p class="text-center text-secondary">Content will appear here...</p>';
+        });
+    </script>
+</body>
+</html>

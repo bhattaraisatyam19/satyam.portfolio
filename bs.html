@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Full Stack Development includes HTML, CSS, Javascript, and Bootstrap for the front end and PHP+MySQL for back end technology.">
+  <meta name="keywords" content="Full Stack Development, HTML, CSS, Javascript, Bootstrap, PHP+MySQL, Web Application Development">
+  <meta name="author" content="Satyam Bhattarai">
+  <meta name="copyright" content="Copyright © 2025" />
+  <title>Bootstrap - Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" type="image/x-icon">
+
+  <!-- Custom Styles -->
+  <style>
+    :root {
+      --primary-dark: #0a192f;
+      --secondary-dark: #112240;
+      --accent-color: #64ffda;
+      --text-primary: #e6f1ff;
+      --text-secondary: #8892b0;
+      --card-bg: #112240;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--primary-dark);
+      color: var(--text-primary);
+      padding-top: 80px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+    
+    .navbar {
+      background-color: rgba(10, 25, 47, 0.95) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .navbar-brand, .nav-link {
+      color: var(--accent-color) !important;
+      font-weight: 600;
+    }
+    
+    .nav-link.active {
+      background-color: rgba(100, 255, 218, 0.1) !important;
+      border-radius: 4px;
+    }
+    
+    .hero-section {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+    }
+    
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(100, 255, 218, 0.1);
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+    }
+    
+    .card-title {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      margin-bottom: 20px;
+    }
+    
+    .code-container {
+      background-color: #1d3a5c;
+      border-radius: 8px;
+      padding: 20px;
+      font-family: 'Fira Code', monospace;
+      overflow-x: auto;
+      border-left: 4px solid var(--accent-color);
+    }
+    
+    .code-keyword {
+      color: #ff79c6;
+    }
+    
+    .code-tag {
+      color: #ff7b72;
+    }
+    
+    .code-attr {
+      color: #79c0ff;
+    }
+    
+    .code-value {
+      color: #a5d6ff;
+    }
+    
+    .code-comment {
+      color: #8b949e;
+    }
+    
+    .btn-accent {
+      background-color: transparent;
+      color: var(--accent-color);
+      border: 1px solid var(--accent-color);
+      border-radius: 4px;
+      padding: 10px 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-accent:hover {
+      background-color: rgba(100, 255, 218, 0.1);
+      color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+    
+    .demo-container {
+      background: linear-gradient(145deg, var(--secondary-dark) 0%, #1a3b63 100%);
+      border-radius: 10px;
+      padding: 25px;
+      margin: 30px 0;
+      border: 1px solid rgba(100, 255, 218, 0.2);
+    }
+    
+    .component-demo {
+      border: 1px solid rgba(100, 255, 218, 0.2);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px 0;
+      background-color: rgba(10, 25, 47, 0.5);
+    }
+    
+    .bootstrap-tag {
+      color: var(--accent-color);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    
+    footer {
+      background-color: var(--secondary-dark);
+      padding: 60px 0 30px;
+      margin-top: 80px;
+    }
+    
+    .social-icon {
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      color: var(--accent-color);
+    }
+    
+    .move-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--accent-color);
+      color: var(--primary-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
+    }
+    
+    .move-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(100, 255, 218, 0.4);
+    }
+    
+    .version-timeline {
+      position: relative;
+      padding-left: 30px;
+      margin: 40px 0;
+    }
+    
+    .version-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-color), transparent);
+    }
+    
+    .version-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    
+    .version-item::before {
+      content: '';
+      position: absolute;
+      left: -34px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--accent-color);
+    }
+    
+    .version-date {
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .bootstrap-logo {
+      filter: drop-shadow(0 0 20px rgba(102, 51, 153, 0.5));
+      max-height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fab fa-bootstrap me-2"></i>Bootstrap Portfolio
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="fullstack.html">Full Stack</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html.html">HTML</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="css.html">CSS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="js.html">JavaScript</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="bs.html">Bootstrap</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold mb-4">Bootstrap Framework</h1>
+          <p class="lead mb-4">The world's most popular front-end component library for building responsive, mobile-first websites.</p>
+          <div class="d-flex gap-3">
+            <button class="btn btn-accent">View Examples</button>
+            <button class="btn btn-accent">Learn More</button>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap Logo" class="img-fluid bootstrap-logo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap Overview -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="mb-4">What is Bootstrap?</h2>
+          <p class="text-secondary">Bootstrap is a powerful, feature-packed frontend toolkit. Build anything from prototype to production in minutes.</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card p-4">
+            <div class="feature-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="card-title">Responsive Design</h3>
+            <p class="text-secondary">Bootstrap's responsive CSS adjusts to phones, tablets, and desktops with a single code base.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4">
+            <div class="feature-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h3 class="card-title">Rapid Development</h3>
+            <p class="text-secondary">Quickly prototype your ideas or build your entire app with our Sass variables and mixins.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4">
+            <div class="feature-icon">
+              <i class="fas fa-components"></i>
+            </div>
+            <h3 class="card-title">Component Library</h3>
+            <p class="text-secondary">Tons of components that are responsive and customizable for any project.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Examples -->
+  <section class="py-5 bg-dark">
+    <div class="container">
+      <h2 class="text-center mb-5">Bootstrap Code Examples</h2>
+      
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <h4 class="mb-3">Basic Bootstrap Setup</h4>
+          <div class="code-container">
+            <pre><code><span class="code-comment">&lt;!-- Include Bootstrap CSS --&gt;</span>
+<span class="code-tag">&lt;link</span> <span class="code-attr">href</span>=<span class="code-value">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"</span> <span class="code-attr">rel</span>=<span class="code-value">"stylesheet"</span><span class="code-tag">&gt;</span>
+
+<span class="code-comment">&lt;!-- Bootstrap container example --&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-value">"container"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-value">"row"</span><span class="code-tag">&gt;</span>
+    <span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-value">"col-md-6"</span><span class="code-tag">&gt;</span>
+      Column 1
+    <span class="code-tag">&lt;/div&gt;</span>
+    <span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-value">"col-md-6"</span><span class="code-tag">&gt;</span>
+      Column 2
+    <span class="code-tag">&lt;/div&gt;</span>
+  <span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;/div&gt;</span>
+
+<span class="code-comment">&lt;!-- Include Bootstrap JS --&gt;</span>
+<span class="code-tag">&lt;script</span> <span class="code-attr">src</span>=<span class="code-value">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"</span><span class="code-tag">&gt;&lt;/script&gt;</span></code></pre>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+          <h4 class="mb-3">Common Components</h4>
+          <div class="code-container">
+            <pre><code><span class="code-comment">&lt;!-- Bootstrap Button --&gt;</span>
+<span class="code-tag">&lt;button</span> <span class="code-attr">type</span>=<span class="code-value">"button"</span> <span class="code-attr">class</span>=<span class="code-value">"btn btn-primary"</span><span class="code-tag">&gt;</span>
+  Primary Button
+<span class="code-tag">&lt;/button&gt;</span>
+
+<span class="code-comment">&lt;!-- Bootstrap Card --&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-value">"card"</span> <span class="code-attr">style</span>=<span class="code-value">"width: 18rem;"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-value">"card-body"</span><span class="code-tag">&gt;</span>
+    <span class="code-tag">&lt;h5</span> <span class="code-attr">class</span>=<span class="code-value">"card-title"</span><span class="code-tag">&gt;</span>Card title<span class="code-tag">&lt;/h5&gt;</span>
+    <span class="code-tag">&lt;p</span> <span class="code-attr">class</span>=<span class="code-value">"card-text"</span><span class="code-tag">&gt;</span>Example card text.<span class="code-tag">&lt;/p&gt;</span>
+    <span class="code-tag">&lt;a</span> <span class="code-attr">href</span>=<span class="code-value">"#"</span> <span class="code-attr">class</span>=<span class="code-value">"btn btn-primary"</span><span class="code-tag">&gt;</span>Go somewhere<span class="code-tag">&lt;/a&gt;</span>
+  <span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;/div&gt;</span>
+
+<span class="code-comment">&lt;!-- Bootstrap Navbar --&gt;</span>
+<span class="code-tag">&lt;nav</span> <span class="code-attr">class</span>=<span class="code-value">"navbar navbar-expand-lg navbar-light bg-light"</span><span class="code-tag">&gt;</span>
+  <span class="code-comment">&lt;!-- Navbar content --&gt;</span>
+<span class="code-tag">&lt;/nav&gt;</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap Components Demo -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Bootstrap Components in Action</h2>
+      
+      <div class="demo-container">
+        <h4 class="mb-4">Grid System <span class="bootstrap-tag">.container > .row > .col-*</span></h4>
+        <div class="component-demo">
+          <div class="container">
+            <div class="row text-center">
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3" style="background-color: rgba(100, 255, 218, 0.1);">
+                  <h5>Column 1</h5>
+                  <p>.col-md-4</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3" style="background-color: rgba(100, 255, 218, 0.1);">
+                  <h5>Column 2</h5>
+                  <p>.col-md-4</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3" style="background-color: rgba(100, 255, 218, 0.1);">
+                  <h5>Column 3</h5>
+                  <p>.col-md-4</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="demo-container">
+        <h4 class="mb-4">Buttons <span class="bootstrap-tag">.btn .btn-*</span></h4>
+        <div class="component-demo">
+          <div class="d-flex flex-wrap gap-3">
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-secondary">Secondary</button>
+            <button type="button" class="btn btn-success">Success</button>
+            <button type="button" class="btn btn-danger">Danger</button>
+            <button type="button" class="btn btn-warning">Warning</button>
+            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-light">Light</button>
+            <button type="button" class="btn btn-dark">Dark</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="demo-container">
+        <h4 class="mb-4">Cards <span class="bootstrap-tag">.card</span></h4>
+        <div class="component-demo">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card text-dark mb-3">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card text-dark">
+                <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card with image</h5>
+                  <p class="card-text">Some quick example text to build on the card title.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap History -->
+  <section class="py-5 bg-dark">
+    <div class="container">
+      <h2 class="text-center mb-5">Evolution of Bootstrap</h2>
+      
+      <div class="version-timeline">
+        <div class="version-item">
+          <div class="version-date">2011</div>
+          <h4>Bootstrap 1</h4>
+          <p class="text-secondary">Originally created by Twitter developers as an internal tool, later released as an open-source project.</p>
+        </div>
+        
+        <div class="version-item">
+          <div class="version-date">2013</div>
+          <h4>Bootstrap 3</h4>
+          <p class="text-secondary">Mobile-first approach, flat design, and rewritten components.</p>
+        </div>
+        
+        <div class="version-item">
+          <div class="version-date">2018</div>
+          <h4>Bootstrap 4</h4>
+          <p class="text-secondary">Major rewrite with Flexbox, new components, and ES6 JavaScript.</p>
+        </div>
+        
+        <div class="version-item">
+          <div class="version-date">2021</div>
+          <h4>Bootstrap 5</h4>
+          <p class="text-secondary">Dropped jQuery, new utilities, improved customization, and vanilla JavaScript.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Practices -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Bootstrap Best Practices</h2>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <h3 class="card-title mb-4">Do's</h3>
+            <ul class="list-unstyled">
+              <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Use the grid system for responsive layouts</li>
+              <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Customize with Sass variables</li>
+              <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Utilize utility classes for rapid development</li>
+              <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Keep components accessible</li>
+              <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Use responsive breakpoints appropriately</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <h3 class="card-title mb-4">Don'ts</h3>
+            <ul class="list-unstyled">
+              <li class="mb-3"><i class="fas fa-times-circle text-danger me-2"></i> Don't override Bootstrap styles unnecessarily</li>
+              <li class="mb-3"><i class="fas fa-times-circle text-danger me-2"></i> Avoid nesting containers</li>
+              <li class="mb-3"><i class="fas fa-times-circle text-danger me-2"></i> Don't forget to include Popper.js for components</li>
+              <li class="mb-3"><i class="fas fa-times-circle text-danger me-2"></i> Avoid using !important in your CSS</li>
+              <li class="mb-3"><i class="fas fa-times-circle text-danger me-2"></i> Don't ignore mobile-first approach</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5>Bootstrap Portfolio</h5>
+          <p class="text-secondary">Building responsive, mobile-first projects on the web.</p>
+        </div>
+        <div class="col-lg-2 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-secondary text-decoration-none">Home</a></li>
+            <li><a href="fullstack.html" class="text-secondary text-decoration-none">Full Stack</a></li>
+            <li><a href="html.html" class="text-secondary text-decoration-none">HTML</a></li>
+            <li><a href="css.html" class="text-secondary text-decoration-none">CSS</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 mb-4">
+          <h5>Technologies</h5>
+          <ul class="list-unstyled">
+            <li><a href="js.html" class="text-secondary text-decoration-none">JavaScript</a></li>
+            <li><a href="bs.html" class="text-secondary text-decoration-none">Bootstrap</a></li>
+            <li><a href="#" class="text-secondary text-decoration-none">PHP</a></li>
+            <li><a href="#" class="text-secondary text-decoration-none">MySQL</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h5>Connect With Me</h5>
+          <div class="d-flex justify-content-start mt-3">
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-dev"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4 bg-secondary">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="text-secondary">© 2023 Bootstrap Portfolio. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <p class="text-secondary">Designed with <i class="fas fa-heart text-danger"></i> for the web</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Move to top button -->
+  <div class="move-top" id="move-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Move to top functionality
+    const moveTopBtn = document.getElementById('move-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        moveTopBtn.style.display = 'flex';
+      } else {
+        moveTopBtn.style.display = 'none';
+      }
+    });
+    
+    moveTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
